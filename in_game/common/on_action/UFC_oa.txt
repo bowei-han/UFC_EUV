@@ -23,6 +23,13 @@ on_cabinet_assigned = {
     }
 }
 
+# root = country
+on_election = {
+    on_actions = {
+        UFC_on_election
+    }
+}
+
 UFC_on_game_start = {
     effect = {
         character:gra_fatima_bint_al_ahmar_nasrid ?= {
@@ -136,6 +143,27 @@ UFC_on_cabinet_assigned = {
                 has_country_modifier = ufc_modifier_free_assign_cabinet
             }
             remove_country_modifier = ufc_modifier_free_assign_cabinet
+        }
+    }
+}
+
+UFC_on_election = {
+    effect = {
+        if = {
+            limit = {
+                succession_law = heir_selection:ufc_board_elective
+            }
+            ruler = {
+                add_adm = 1
+                add_dip = 1
+                add_mil = 1
+            }
+            if = {
+                limit = {
+                    has_variable = ufc_no_confidence_motion_flag
+                }
+                trigger_event_non_silently = flavor_ufc.1000
+            }
         }
     }
 }

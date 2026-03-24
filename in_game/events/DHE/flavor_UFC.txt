@@ -670,3 +670,148 @@ flavor_ufc.16 = {
 		set_variable = ufc_variable_the_legacy_of_fatima_nasrid
 	}
 }
+
+flavor_ufc.1000 = {
+	type = country_event
+	title = flavor_ufc.1000.title
+	desc = flavor_ufc.1000.desc
+	fire_only_once = yes
+	illustration_tags = {
+		10 = happy
+		10 = interior
+	}
+	trigger = {
+		succession_law = heir_selection:ufc_board_elective
+	}
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:nobles_estate background = estate_type:nobles_estate }
+		random_election_candidates = {
+			limit = {
+			}
+			save_scope_as = candidate_a
+		}
+		random_election_candidates = {
+			limit = {
+				NAND = {  exists = scope:candidate_a	this = scope:candidate_a }
+			}
+			save_scope_as = candidate_b
+		}
+		random_election_candidates = {
+			limit = {
+				NAND = { exists = scope:candidate_a	this = scope:candidate_a }
+				NAND = { exists = scope:candidate_b	this = scope:candidate_b }
+			}
+			save_scope_as = candidate_c
+		}
+		random_election_candidates = {
+			limit = {
+				NAND = { exists = scope:candidate_a	this = scope:candidate_a }
+				NAND = { exists = scope:candidate_b	this = scope:candidate_b }
+				NAND = { exists = scope:candidate_c	this = scope:candidate_c }
+			}
+			save_scope_as = candidate_d
+		}
+		if = {
+			limit = {
+				NOR = {
+					exists = scope:candidate_a
+					exists = scope:candidate_b
+					exists = scope:candidate_c
+				}
+			}
+			random_owned_location = {
+				create_dynasty_from_location = random
+				last_dynasty_in_location ?= {
+					save_scope_as = target_dynasty
+				}
+				save_scope_as = location_scope
+			}
+			if = {
+				limit = { exists = scope:target_dynasty }
+				create_character = {
+					culture = root.culture
+					religion = root.religion
+					age = 30
+					birth_location = scope:location_scope
+					dynasty = scope:target_dynasty
+					save_scope_as = candidate_a
+				}
+			}
+			else = {
+				create_character = {
+					culture = root.culture
+					religion = root.religion
+					age = 30
+					birth_location = scope:location_scope
+					save_scope_as = candidate_a
+				}
+				scope:candidate_a = {
+					found_dynasty = random
+				}
+			}
+		}
+	}
+	option = {
+		name = election.1.a
+		trigger = {
+			exists = scope:candidate_a
+		}
+		if = {
+			limit = {
+				scope:candidate_a = { is_ruler = yes }
+			}
+			add_government_power = government_power_extreme_penalty
+		}
+		set_new_ruler = scope:candidate_a
+	}
+
+
+	option = {
+		name = election.1.b
+		trigger = {
+			exists = scope:candidate_b
+		}
+		if = {
+			limit = {
+				scope:candidate_b = { is_ruler = yes }
+			}
+			add_government_power = government_power_extreme_penalty
+		}
+
+		set_new_ruler = scope:candidate_b
+	}
+
+
+	option = {
+		name = election.1.c
+		trigger = {
+			exists = scope:candidate_c
+		}
+		if = {
+			limit = {
+				scope:candidate_c = { is_ruler = yes }
+			}
+			add_government_power = government_power_extreme_penalty
+		}
+
+		set_new_ruler = scope:candidate_c
+	}
+
+	option = {
+		name = election.1.d
+		trigger = {
+			exists = scope:candidate_d
+		}
+		if = {
+			limit = {
+				scope:candidate_d = { is_ruler = yes }
+			}
+			add_government_power = government_power_extreme_penalty
+		}
+
+		set_new_ruler = scope:candidate_d
+	}
+	after = {
+		remove_variable = ufc_no_confidence_motion_flag
+	}
+}

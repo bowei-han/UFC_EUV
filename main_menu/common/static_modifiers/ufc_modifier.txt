@@ -114,3 +114,21 @@ ufc_modifier_promote_consumerism = {
 	global_pop_silver_demand = 0.05
 	global_estate_target_satisfaction = -0.05
 }
+
+ufc_modifier_condifence_risk = {
+	game_data = {
+		category = country
+		decaying = yes
+	}
+	monthly_republican_tradition = -0.1
+	court_spending_cost = -0.02
+}
+
+ufc_modifier_kindhearted_weaver = {
+	game_data = {
+		category = character
+	}
+	character_life_expectancy = 20
+	dip = 10
+	character_fertility = -0.95
+}

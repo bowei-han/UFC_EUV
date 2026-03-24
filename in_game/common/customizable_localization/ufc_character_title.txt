@@ -8,7 +8,22 @@
 			is_legally_male = yes
 			owner ?= {
 				tag = UFC
-				has_reform = government_reform:UFC_merchant_federation
+				country_type = building
+				not = {
+					has_reform = government_reform:UFC_shareholding_system_reform
+				}
+			}
+		}
+	}
+	text = {
+		localization_key = character_title_ufc_cooperation
+
+		trigger = {
+			is_ruler = yes
+			is_legally_male = yes
+			owner ?= {
+				tag = UFC
+				has_reform = government_reform:UFC_shareholding_system_reform
 			}
 		}
 	}

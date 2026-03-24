@@ -1,0 +1,57 @@
+﻿ufc_no_confidence_motion = {
+
+	is_consort_action = no
+	on_own_nation = yes
+		
+	message = yes
+
+	ai_tick = never
+	
+	
+	potential = {
+		scope:actor = {
+			succession_law = heir_selection:ufc_board_elective
+		}
+	}
+
+	allow = {
+		scope:actor = {
+			not = {
+				has_variable = ufc_no_confidence_motion_flag
+			}
+		}
+	}
+	
+	ai_will_do = {
+		add = 0
+	}
+	
+	select_trigger = {
+		looking_for_a = character
+		source = actor
+		target_flag = recipient
+		name = "choose_character"
+		column = {
+			data = name
+		}
+		visible = {
+			scope:actor = {
+				ruler ?= root
+			}
+		}
+		enabled = {
+		}
+	}
+
+	effect = {
+		custom_tooltip = UFC_TOOLTIP_RAISE_NO_CONFIDENCE_MOTION
+		scope:actor = {
+			set_variable = ufc_no_confidence_motion_flag
+			add_government_power = {
+				value = ruler.total_abilities
+				multiply = 0.2
+			}
+		}
+	}
+	
+}	

@@ -293,7 +293,7 @@ UFC_academic_department_foreign = {
 
 	modifier = {
 		local_max_literacy = 10
-		local_pop_conversion_speed = 20
+		local_pop_conversion_speed = 0.02
 		local_monthly_literacy = 0.1
 	}
 
@@ -334,7 +334,7 @@ UFC_academic_department = {
 
 	modifier = {
 		local_max_literacy = 15
-		local_pop_conversion_speed = 40
+		local_pop_conversion_speed = 0.04
 		local_monthly_literacy = 0.15
 		local_institution_growth_modifier = 0.5
 		research_speed_modifier = 0.0025
