@@ -7321,19 +7321,21 @@ ufc_situations.5035 = {
 		location:malaga = {
 			save_scope_as = target_location
 		}
-		create_character = {
-			first_name = name_ufc_vendredi
-			adm = 37
-			dip = 9
-			mil = 83
-			culture = culture:ligurian
-			birth_location = location:genoa
-			religion = religion:catholic
-			birth_date = 1390.3.1
-			estate = estate_type:burghers_estate
-			script = ufc_character_dominica_colombo
+		c:CNR = {
+			create_character = {
+				first_name = name_ufc_vendredi
+				adm = 37
+				dip = 9
+				mil = 83
+				culture = culture:guanche
+				birth_location = location:aguere
+				religion = religion:guanche_religion
+				birth_date = 1392.6.28
+				estate = estate_type:tribes_estate
+				script = ufc_character_vendredi
+			}
 		}
-		character:ufc_character_dominica_colombo = {
+		character:ufc_character_vendredi = {
 			save_scope_as = target_character
 		}
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:peasants_estate }
@@ -7341,19 +7343,124 @@ ufc_situations.5035 = {
 
 	option = {
 		name = ufc_situations.5035.a
-		custom_tooltip = ufc_situations.5030.a.tt
-		character:ufc_character_dominica_colombo = {
-			add_character_modifier = {
-				modifier = ufc_modifier_kindhearted_weaver
-			}
+		character:ufc_character_vendredi = {
+			move_country = c:UFC
+			change_character_religion = religion:sunni
+			add_dip = 10
 		}
 	}
 	after = {
 		hidden_effect = {
 			trigger_event_non_silently = {
-				id = ufc_situations.5035
+				id = ufc_situations.5040
 				days = 256
 			}
 		}
 	}
 }
+
+ufc_situations.5040 = {
+	type = country_event
+	title = ufc_situations.5040.title
+	desc = ufc_situations.5040.desc
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	immediate = {
+		location:malaga = {
+			save_scope_as = target_location
+		}
+		character:ufc_character_vendredi = {
+			save_scope_as = target_character
+		}
+		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:peasants_estate }
+	}
+
+	option = {
+		name = ufc_situations.5040.a
+		custom_tooltip = ufc_situations.5040.a.tt
+		add_diplomats = 1
+	}
+	after = {
+		hidden_effect = {
+			# trigger_event_non_silently = {
+			# 	id = ufc_situations.5045
+			# 	days = 256
+			# }
+			c:UFC = {
+				set_variable = UFC_var_wait_for_cas_spy_network
+			}
+		}
+	}
+}
+
+
+ufc_situations.5045 = {
+	type = country_event
+	title = ufc_situations.5045.title
+	desc = ufc_situations.5045.desc
+	fire_only_once = yes
+	dynamic_historical_event = {
+		tag = UFC
+		from = 1400.1.1
+		to = 1500.1.1
+		monthly_chance = 100
+	}
+	trigger = {
+		c:UFC = {
+			has_variable = UFC_var_wait_for_cas_spy_network
+			spy_network = {
+				target = c:CAS
+				value >= 30
+			}
+		}
+	}
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	immediate = {
+		location:malaga = {
+			save_scope_as = target_location
+		}
+		character:ufc_character_vendredi = {
+			save_scope_as = target_character
+		}
+		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:peasants_estate }
+	}
+
+	option = {
+		name = ufc_situations.5045.a
+		character:ufc_character_vendredi = {
+			add_adm = 20
+			change_character_estate = estate_type:burghers_estate
+		}
+	}
+
+	option = {
+		name = ufc_situations.5045.b
+		character:ufc_character_vendredi = {
+			add_dip = 30
+			change_character_estate = estate_type:burghers_estate
+		}
+	}
+
+	option = {
+		name = ufc_situations.5045.c
+		character:ufc_character_vendredi = {
+			add_mil = 5
+			change_character_estate = estate_type:burghers_estate
+		}
+	}
+	after = {
+		hidden_effect = {
+			trigger_event_non_silently = {
+				id = ufc_situations.5050
+				days = 256
+			}
+		}
+	}
+}
+
