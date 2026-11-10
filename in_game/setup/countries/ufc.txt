@@ -4,4 +4,7 @@
 
 	culture_definition = andalusi
 	religion_definition = sunni
+
+	description_category = administrative
+	difficulty = 3
 }

@@ -1,5 +1,6 @@
 ﻿INJECT:administrative_system = {
 	centralized_trade_federations = {
+		unique = yes
 		potential = {
 			tag = UFC
 			has_fired_unique_event = ufc_situations.1155
@@ -8,7 +9,7 @@
 			}
 		}
 		country_modifier = {
-			trade_efficiency = 0.05
+			selling_efficiency = 0.05
 			monthly_towards_centralization = societal_value_monthly_move
 		}
 		estate_preferences = {
@@ -38,7 +39,7 @@ ufc_monetary_law = {
 
 	ufc_banknote_policy = {
 		country_modifier = {
-			trade_efficiency = 0.05
+			selling_efficiency = 0.05
 		}
 		estate_preferences = {
 			burghers_estate
@@ -92,7 +93,7 @@ ufc_department_law_academic_department_set = {
 
 	ufc_start_academic_department = {
 		country_modifier = {
-			court_spending_cost = 0.015
+			court_spending_efficiency = -0.03
 			research_speed_modifier = 0.1
 			global_max_literacy = 5
 			monthly_towards_innovative = societal_value_minor_monthly_move
@@ -134,7 +135,7 @@ ufc_department_law_human_resource_set = {
 
 	ufc_start_human_resource_department = {
 		country_modifier = {
-			court_spending_cost = 0.015
+			court_spending_efficiency = -0.03
 			global_pop_promotion_speed_modifier = 0.1
 			global_estate_target_satisfaction = small_permanent_target_satisfaction
 			monthly_towards_serfdom = societal_value_minor_monthly_move
@@ -148,6 +149,7 @@ ufc_department_law_human_resource_set = {
 
 INJECT:distribution_of_power_law = {
 	UFC_board_director_meeting = {
+		unique = yes
 		potential = {
 			has_unlocked_policy_trigger = {
 				type = UFC_board_director_meeting
@@ -163,6 +165,29 @@ INJECT:distribution_of_power_law = {
 		}
 		estate_preferences = {
 			crown_estate
+		}
+		years = 2
+	}
+}
+
+INJECT:iqta_law = {
+	UFC_board_taxation = {
+		unique = yes
+		potential = {
+			has_reform = government_reform:UFC_merchant_federation
+		}
+		show_tags_in_ui = yes
+		country_modifier = {
+			nobles_estate_max_tax = -1
+			nobles_estate_target_satisfaction = 0.1
+			burghers_estate_max_tax = 0.2
+			burghers_estate_target_satisfaction = 0.1
+			tax_income_efficiency = 0.025
+			monthly_towards_plutocracy = 0.2
+		}
+		estate_preferences = {
+			nobles_estate
+			burghers_estate
 		}
 		years = 2
 	}

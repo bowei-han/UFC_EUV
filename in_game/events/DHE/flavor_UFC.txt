@@ -4,12 +4,20 @@ flavor_ufc.0 = { #Consulate of the Sea
 	type = country_event
 	title = flavor_ufc.0.title
 	desc = flavor_ufc.0.desc
+
+	
 	fire_only_once = yes
 	image = "gfx/interface/illustrations/event/backgrounds/special/spaceship.dds"
 
 	option = {
 		name = flavor_ufc.0.a
 		custom_tooltip = flavor_ufc.0.a.tt
+		every_controlled_location = {
+			limit = {
+				is_core_of = c:SPA
+			}
+			add_core = c:TUR
+		}
 	}
 }
 

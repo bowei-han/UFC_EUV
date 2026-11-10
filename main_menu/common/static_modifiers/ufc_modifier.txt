@@ -50,7 +50,7 @@ ufc_modifier_dept_of_love = {
 	game_data = {
 		category = character
 	}
-	court_spending_cost = 0.05
+	court_spending_efficiency = -0.1
 }
 
 ufc_modifier_slow_expansion = {
@@ -58,9 +58,9 @@ ufc_modifier_slow_expansion = {
 		category = country
 		decaying = yes
 	}
-	global_foreign_build_buildings_cost = 0.2
+	global_foreign_build_buildings_efficiency = -0.4
 	stability_investment = standard_stability_investment
-	trade_efficiency = medium_trade_efficiency_bonus
+	selling_efficiency = medium_selling_efficiency_bonus
 }
 
 ufc_modifier_self_corrosion = {
@@ -102,7 +102,7 @@ ufc_modifier_double_time_double_pay = {
 	}
 	country_cabinet_efficiency = -0.1
 	character_cabinet_efficiency = -0.1
-	court_spending_cost = -0.05
+	court_spending_efficiency = 0.1
 }
 
 ufc_modifier_promote_consumerism = {
@@ -111,7 +111,7 @@ ufc_modifier_promote_consumerism = {
 		decaying = yes
 	}
 	estate_enrichment = -0.10
-	global_pop_silver_demand = 0.05
+	global_silver_pop_demand = 0.05
 	global_estate_target_satisfaction = -0.05
 }
 
@@ -121,7 +121,7 @@ ufc_modifier_condifence_risk = {
 		decaying = yes
 	}
 	monthly_republican_tradition = -0.1
-	court_spending_cost = -0.02
+	court_spending_efficiency = 0.04
 }
 
 ufc_modifier_kindhearted_weaver = {

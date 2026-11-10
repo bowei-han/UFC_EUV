@@ -6,7 +6,7 @@ UFC = {
     color3 = "yellow"
     color4 = "black"
     color5 = "blue"
-    color6 = "red"
+    #color6 = "red"
     textured_emblem = {
         texture = "te_UFC.dds"
     }

@@ -1,13 +1,13 @@
-COUNTRIES = {
+countries  = {
     countries = {
         UFC = {
             type = building
+            #own_control_core = { malaga }
             starting_technology_level = 3
             capital = malaga
 
             country_rank = rank_county
 
-            
             include = "expl_muslim_mediterranean"
             include = "expl_silk_road_west"
             include = "expl_silk_road_center"
@@ -24,18 +24,18 @@ COUNTRIES = {
                 parliament = {
                     parliament_type = estate_parliament
                 }
-                centralization_vs_decentralization = 30
+                centralization_vs_decentralization = 10
                 aristocracy_vs_plutocracy = 70
                 serfdom_vs_free_subjects = 0
-                traditionalist_vs_innovative = 0
+                traditionalist_vs_innovative = 20
                 spiritualist_vs_humanist = 10
-                mercantilism_vs_free_trade = 0
+                mercantilism_vs_free_trade = 50
                 belligerent_vs_conciliatory = 0
                 quality_vs_quantity = 0
-                offensive_vs_defensive = 10
-                land_vs_naval = 10
-                capital_economy_vs_traditional_economy = -80
-                individualism_vs_communalism = 10
+                offensive_vs_defensive = 20
+                land_vs_naval = 75
+                capital_economy_vs_traditional_economy = -10
+                individualism_vs_communalism = 20
                 outward_vs_inward = -20
                 mysticism_vs_jurisprudence = -5
 
@@ -50,9 +50,7 @@ COUNTRIES = {
                     republican_foundation_law = meritocratic_rule_policy
                     marriage_law = muslim_marriage
                     heir_religion_law = heir_same_religion
-                    legal_code_law = traditional_law_policy
                     maritime_law = shipwright_standard_regulation
-                    distribution_of_power_law = dop_favor_the_kontors
                     education_masses_law = basic_religious_education
                     immigration_law = open_borders_law
                     mining_law = burghers_mining_law
@@ -61,6 +59,11 @@ COUNTRIES = {
                     education_masses_law = basic_religious_education
                     censorship = no_censorship
                     distribution_of_power_law = dop_favor_the_burghers
+                    coin_laws = gold_and_silver_coins
+                }
+                laws = {
+                    has_dlc = "d009_across_the_pillars"
+                    dhimmi_regulations_law = dhimmi_status_policy
                 }
             }
             court_language = maghrebi_dialect

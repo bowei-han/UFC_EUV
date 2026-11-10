@@ -4,7 +4,7 @@
 		has_or_had_tag = UFC
 	}
 	exploration_mission_speed_modifier = 0.25
-	exploration_maintenance_cost = -0.25
+	exploration_maintenance_efficiency = 0.5
 	icon = exploration
 	requires = feudalism_advance
 }
@@ -26,7 +26,7 @@ ufc_distributed_business_network = {
 	}
 	icon = free_trade
 	trade_range_modifier = 0.2
-	trade_efficiency = 0.05
+	selling_efficiency = 0.1
 }
 
 ufc_trade_ambassador = {
@@ -126,7 +126,7 @@ ufc_subcompany = {
 	icon = renaissance_subject_opinions_advance
 	subject_loyalty = 5
 	subject_income_modifier = 0.2
-	annexation_speed = 0.2
+	annexation_speed_base = 0.2
 }
 
 ufc_marine = {
@@ -135,7 +135,8 @@ ufc_marine = {
 		has_or_had_tag = UFC
 	}
 	icon = cas_marine_infantry
-	army_infantry_power = 0.15
+	army_heavy_infantry_power = 0.15
+	army_light_infantry_power = 0.15
 	power_projection = 5
 }
 
@@ -169,7 +170,7 @@ ufc_local_technical_officers_council = {
 	icon = deliberative_council
 	global_max_rural_control = 0.15
 	global_max_control = 0.05
-	land_cost_on_distance_from_capital_modifier = -0.05
+	land_cost_on_distance_from_capital_speed_propagation = 0.1
 }
 
 ufc_anti_early_nationalism = {

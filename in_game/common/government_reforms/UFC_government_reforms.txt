@@ -15,15 +15,15 @@
         cannot_be_subjugated = yes
         allows_ufc_federation_buildings = yes
         global_burghers_estate_power = -0.5
-        merchant_maintenance_cost = -0.25
-        building_upkeep_costs = -0.25
+        merchant_maintenance_efficiency = 0.5
+        building_upkeep_efficiency = 0.5
         monthly_diplomats = 0.2
         allowed_alliance = no
         government_reform_slots = 1
         num_possible_rivals = -10
     }
     country_modifier = {
-        trade_efficiency = 0.1
+        selling_efficiency = 0.1
         improve_relation_impact = 0.25
         scale = {
             min = 0

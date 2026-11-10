@@ -38,6 +38,9 @@ UFC_on_game_start = {
                 size = 1
                 days = -1
             }
+            add_character_modifier = {
+                modifier = hajji_pilgrim
+            }
         }
         character:cas_alfonso_xi_burgundy ?= {
             add_character_modifier = {

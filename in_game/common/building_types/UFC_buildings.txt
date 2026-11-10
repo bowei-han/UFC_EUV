@@ -1,9 +1,9 @@
-﻿
-UFC_trade_post = {
+﻿UFC_trade_post = {
 	is_foreign = yes
+	is_special = yes
 	need_good_relation = yes
 	pop_type = burghers
-
+	pop_size_created = foreign_trade_employment
 	category = trade_category
 
 	max_levels = hanseatic_kontor_max_level
@@ -16,9 +16,9 @@ UFC_trade_post = {
 	increase_per_level_cost = 0.5
 
 	country_potential = {
+		#has_or_had_tag = UFC
 		modifier:allows_ufc_federation_buildings = yes
 	}
-
 
 	build_time = trade_post_build_time
 
@@ -30,9 +30,11 @@ UFC_trade_post = {
 	}
 	unique_production_methods = {
 		UFC_trade_post_maintenance = {
+			icon_type = building_type
+			icon = hanseatic_kontor
 			lumber = 0.1
-			tools = 0.025
-			paper = 0.1
+			tools = 0.05
+			paper = 0.2
 
 			category = building_maintenance
 		}
@@ -45,6 +47,7 @@ UFC_shipwright_guild = {
 	#need_good_relation = yes
 
 	pop_type = burghers
+	pop_size_created = large_foreign_trade_employment
 	max_levels = guild_max_level
 	category = military_category
 	country_potential = {
@@ -77,7 +80,7 @@ UFC_town_hall = {
 	#need_good_relation = yes
 
 	pop_type = nobles
-
+	pop_size_created = 0.05
 	category = trade_category
 
 	max_levels = 3
@@ -103,7 +106,7 @@ UFC_town_hall = {
 	build_time = large_capital_build_time
 
 	capital_country_modifier = {
-		trade_efficiency = 0.05
+		selling_efficiency = 0.05
 		global_crown_estate_power = 0.15
 		monthly_republican_tradition = 0.05
 	}
@@ -128,6 +131,7 @@ UFC_recruitment_centre = {
 	is_foreign = yes
 	stronger_power_projection = no
 	pop_type = burghers
+	pop_size_created = large_foreign_trade_employment
 	category = military_category
 
 	max_levels = 3
@@ -169,7 +173,7 @@ UFC_raw_material_collection_center = {
 	stronger_power_projection = no
 	pop_type = burghers
 	category = trade_category
-
+	pop_size_created = large_foreign_trade_employment
 	max_levels = 3
 	employment_size = 0.025
 	rural_settlement = yes
@@ -228,6 +232,7 @@ UFC_trade_embassy = {
 	max_levels = 1
 	need_good_relation = yes
 	pop_type = nobles
+	pop_size_created = 0.05
 	category = government_category
 	rural_settlement = no
 	town = yes
@@ -269,6 +274,7 @@ UFC_trade_embassy = {
 UFC_academic_department_foreign = {
 	is_foreign = yes
 	pop_type = clergy
+	pop_size_created = 0.05
 	max_levels = 1
 
 	category = cultural_category

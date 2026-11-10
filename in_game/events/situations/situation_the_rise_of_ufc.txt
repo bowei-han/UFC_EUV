@@ -6621,7 +6621,6 @@ ufc_situations.4090 = {
 		unlock_government_reform_effect = {
 			type = UFC_shareholding_system_reform
 		}
-		add_reform = government_reform:UFC_shareholding_system_reform
 		add_republican_tradition = 10
 		trigger_event_non_silently = {
 			id = ufc_situations.4095
@@ -6635,7 +6634,9 @@ ufc_situations.4090 = {
 				id = ufc_situations.4095
 				days = 256
 			}
+
 		}
+		
 	}
 }
 
