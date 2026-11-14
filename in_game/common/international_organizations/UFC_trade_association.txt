@@ -10,18 +10,17 @@
 	has_leader_country = yes
 	leader_title_key = "UFC_LEADER"
 	leader_type = country
-	leader = {
-		leader_country ?= {
-			ruler ?= {
-				add_to_list = leaders
-			}
-		}
-	}
+	#leader_type = country
+	leader_change_trigger_type = none
+	# leader = {
+	# 	leader_country ?= {
+	# 		ruler ?= {
+	# 			add_to_list = leaders
+	# 		}
+	# 	}
+	# }
 
 	opinion_bonus = 100
-	can_initiate_policy_votes = {
-		is_leader_of_international_organization = this
-	}
 	on_creation = {
 		set_variable = { name = ufc_gra_payment_multiplier value = 1}
 	}
@@ -84,7 +83,10 @@
 	}
 
 	special_statuses_implemented = {
+		ufc_merchant_association_leader
+		ufc_member_states
 		ufc_gra_payment_payee
+		ufc_trade_partners
 	}
 
 	monthly_effect = {
@@ -112,7 +114,28 @@
 			change_format = "VARIABLE_CHANGE_FORMAT"
 			min = 0
 			max = 100
+			monthly_change = {
+				add = {
+					desc = "NUMBER_OF_MEMBERS"
+					value = 0
+					every_international_organization_member = {
+						add = 0.01
+					}
+				}
+				subtract = {
+					desc = "PROPORTION_DECAY"
+					value = international_organization:ufc_trade_association.var:merchant_fenderal_impact
+					multiply = 0.001
+				}
+			}
 		}
+	}
+
+	laws = {
+	}
+
+	can_initiate_policy_votes = {
+		is_leader_of_international_organization = scope:recipient
 	}
 
 	tooltip = {

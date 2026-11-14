@@ -1,0 +1,292 @@
+ufc_christian_slaves_law = {
+    type = international_organization
+    law_category = socioeconomic
+    potential = {
+        international_organization_type = international_organization_type:ufc_trade_association
+    }
+    allow = {
+        c:UFC = {
+            has_fired_unique_event = flavor_ufc.101
+        }
+    }
+    custom_tags = { forbids_no_policy }
+
+    allow_christian_slaves_policy = {
+        #opinion_bonus = 30
+        #trust_bonus = 8
+        leader_modifier = {
+            tolerance_own = 1
+            diplomatic_reputation = -1
+        }
+        on_activate = {
+            # on_union_policy_change_effect = yes
+            # if = {
+            #     limit = { international_organization_type = international_organization_type:marriage_union }
+            #     iu_establish_iberian_wedding_succession_effect = yes
+            #     iu_stash_catholic_monarchs_choice_effect = { choice = tanto_monta }
+            #     custom_tooltip = iu_tanto_monta_no_seniority_tt
+            # }
+        }
+        wants_this_policy_bias = {
+            if = {
+                limit = {
+                    religion = {
+                        group = religion_group:muslim
+                    }
+                }
+                add = {
+                    desc = "muslim"
+                    value = 100
+                }
+            }
+            add = {
+                desc = "OPINION_OF_UFC"
+                value = "root.opinion(c:UFC)"
+                divide = 2
+            }
+        }
+        wants_keep_policy = {
+            add = {
+                desc = "VOTE_CONSERVATIVE_CLIMATE"
+                value = 50
+            }
+        }
+    }
+
+    ransom_brokerage_policy = {
+        # international_organization_modifier = {
+        #     monthly_merchant_fenderal_impact = 0.05
+        # }
+        leader_modifier = {
+            diplomatic_reputation = 0.5
+            monthly_prestige = 0.03
+        }
+        wants_this_policy_bias = {
+            add = {
+                desc = "OPINION_OF_UFC"
+                value = "root.opinion(c:UFC)"
+            }
+        }
+        wants_keep_policy = {
+            add = {
+                desc = "VOTE_CONSERVATIVE_CLIMATE"
+                value = 50
+            }
+        }
+    }
+
+    forbid_christian_slaves_policy = {
+        leader_modifier = {
+            selling_efficiency = -0.05
+            diplomatic_reputation = 1
+        }
+        wants_this_policy_bias = {
+            if = {
+                limit = {
+                    religion = {
+                        group = religion_group:christian
+                    }
+                }
+                add = {
+                    desc = "christian"
+                    value = 100
+                }
+            }
+            add = {
+                desc = "OPINION_OF_UFC"
+                value = "root.opinion(c:UFC)"
+                divide = 2
+            }
+        }
+        wants_keep_policy = {
+            add = {
+                desc = "VOTE_CONSERVATIVE_CLIMATE"
+                value = 50
+            }
+        }
+    }
+}
+
+ufc_tariff_initiative_law = {
+    type = international_organization
+    law_category = socioeconomic
+    potential = {
+        international_organization_type = international_organization_type:ufc_trade_association
+    }
+    allow = {
+        c:UFC = {
+            has_fired_unique_event = flavor_ufc.102
+        }
+    }
+    custom_tags = { forbids_no_policy }
+
+    standardised_tariffs_policy = {
+        opinion_bonus = -10
+        #trust_bonus = 8
+        leader_modifier = {
+            monthly_prestige = 0.05
+            foreign_export_from_market_efficiency = 0.05
+        }
+        country_modifier = {
+            max_tariff = -0.05
+            foreign_export_from_market_efficiency = 0.05
+        }
+        on_activate = {
+            # on_union_policy_change_effect = yes
+            # if = {
+            #     limit = { international_organization_type = international_organization_type:marriage_union }
+            #     iu_establish_iberian_wedding_succession_effect = yes
+            #     iu_stash_catholic_monarchs_choice_effect = { choice = tanto_monta }
+            #     custom_tooltip = iu_tanto_monta_no_seniority_tt
+            # }
+        }
+        wants_this_policy_bias = {
+            add = {
+                desc = "BASE_DISAGREEMENT"
+                value = -50
+            }
+            add = {
+                desc = "OPINION_OF_UFC"
+                value = "root.opinion(c:UFC)"
+            }
+        }
+        wants_keep_policy = {
+            add = {
+                desc = "VOTE_CONSERVATIVE_CLIMATE"
+                value = 50
+            }
+        }
+    }
+
+    freedom_set_tariffs_policy = {
+        # international_organization_modifier = {
+        #     monthly_merchant_fenderal_impact = 0.05
+        # }
+        leader_modifier = {
+            selling_efficiency = -0.01
+            tariff_income = 0.1
+        }
+        country_modifier = {
+            max_tariff = 0.05
+        }
+        wants_this_policy_bias = {
+            add = {
+                desc = "OPINION_OF_UFC"
+                value = "root.opinion(c:UFC)"
+                divide = 2
+            }
+        }
+        wants_keep_policy = {
+            add = {
+                desc = "VOTE_CONSERVATIVE_CLIMATE"
+                value = 50
+            }
+        }
+    }
+}
+
+ufc_trade_measurements_law = {
+    type = international_organization
+    law_category = socioeconomic
+    potential = {
+        international_organization_type = international_organization_type:ufc_trade_association
+    }
+    allow = {
+        c:UFC = {
+            has_fired_unique_event = flavor_ufc.103
+        }
+    }
+    custom_tags = { forbids_no_policy }
+
+    trade_measurements_commercial_standards_policy = {
+        #trust_bonus = 8
+        opinion_bonus = -5
+        leader_modifier = {
+            monthly_prestige = 0.05
+            merchant_maintenance_efficiency = 0.1
+            nobles_estate_target_satisfaction = 0.025
+        }
+        country_modifier = {
+            merchant_maintenance_efficiency = 0.05
+            burghers_estate_target_satisfaction = 0.025
+            nobles_estate_target_satisfaction = -0.025
+        }
+        on_activate = {
+            # on_union_policy_change_effect = yes
+            # if = {
+            #     limit = { international_organization_type = international_organization_type:marriage_union }
+            #     iu_establish_iberian_wedding_succession_effect = yes
+            #     iu_stash_catholic_monarchs_choice_effect = { choice = tanto_monta }
+            #     custom_tooltip = iu_tanto_monta_no_seniority_tt
+            # }
+        }
+        wants_this_policy_bias = {
+            add = {
+                desc = "BASE_DISAGREEMENT"
+                value = -50
+            }
+            add = {
+                desc = "OPINION_OF_UFC"
+                value = "root.opinion(c:UFC)"
+            }
+        }
+        wants_keep_policy = {
+            add = {
+                desc = "VOTE_CONSERVATIVE_CLIMATE"
+                value = 50
+            }
+        }
+    }
+
+    trade_measurements_freedom_policy = {
+        leader_modifier = {
+            monthly_political_influence = 0.05
+        }
+        country_modifier = {
+            merchant_maintenance_efficiency = -0.05
+            nobles_estate_target_satisfaction = 0.025
+        }
+        wants_this_policy_bias = {
+            # add = {
+            #     desc = "OPINION_OF_UFC"
+            #     value = "root.opinion(c:UFC)"
+            #     divide = 2
+            # }
+        }
+        wants_keep_policy = {
+            add = {
+                desc = "VOTE_CONSERVATIVE_CLIMATE"
+                value = 50
+            }
+        }
+    }
+
+    trade_measurements_standard_policy = {
+        allow = {
+            custom_tooltip = {
+                text = "UNTIL_INFLUECING"
+                always = no
+            }
+        }
+        leader_modifier = {
+            merchant_maintenance_efficiency = 0.3
+        }
+        country_modifier = {
+            merchant_maintenance_efficiency = 0.1
+            burghers_estate_target_satisfaction = 0.05
+        }
+        wants_this_policy_bias = {
+            add = {
+                desc = "OPINION_OF_UFC"
+                value = "root.opinion(c:UFC)"
+                divide = 2
+            }
+        }
+        wants_keep_policy = {
+            add = {
+                desc = "VOTE_CONSERVATIVE_CLIMATE"
+                value = 50
+            }
+        }
+    }
+}

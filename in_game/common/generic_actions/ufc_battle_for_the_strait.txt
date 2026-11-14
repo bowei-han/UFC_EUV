@@ -213,12 +213,10 @@ UFC_curtailing_granada_sovereignty = {
 		type = UFC_curtailing_granada_sovereignty
 		years = 3
 	}
-	price = price:ufc_intervention_in_third_party_war_gold
+	price = price:ufc_curtailing_granada_sovereignty_price
 	allow = {
-		not = {
-			ruler = {
-				is_dynastic_descendant_of = dynasty:nasrid_dynasty
-			}
+		character:gra_fatima_bint_al_ahmar_nasrid ?= {
+			is_ruler = no
 		}
 	}
 	select_trigger = {

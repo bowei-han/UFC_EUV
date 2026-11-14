@@ -7,18 +7,66 @@
 		current_date < 1350
 	}
 	
-	can_end = {
-		OR = {
-			current_age = age_3_discovery
+	# can_end = {
+	# 	OR = {
+	# 		#current_age = age_3_discovery
+	# 		custom_tooltip = {
+	# 			text = ufc_custom_trigger_abudula_ummayad_rules
+	# 			c:UFC = {
+	# 				ruler = {
+	# 					has_character_modifier =
+	# 				}
+	# 			}
+	# 		}
+	# 		OR = {
+	# 			not = {
+	# 				country_exists = c:UFC
+	# 			}
+	# 			c:UFC = {
+	# 				is_during_bankruptcy = yes
+	# 			}
+	# 		}
+	# 	}
+	# }
+
+	outcome = {
+		name = "rise_of_the_ufc_success"
+		desc = "rise_of_the_ufc_success_desc"
+		trigger = {
 			custom_tooltip = {
 				text = ufc_custom_trigger_abudula_ummayad_rules
-				always = no
+				c:UFC = {
+					ruler = {
+						has_character_modifier = ufc_modifier_umayyad
+					}
+				}
 			}
-			not = {
-				country_exists = c:UFC
+		}
+		immediate = {
+			custom_tooltip = {
+				text = ufc_custom_tooltip_towards_second_situation
 			}
+		}
+	}
+
+	outcome = {
+		name = "rise_of_the_ufc_fail"
+		desc = "rise_of_the_ufc_fail_desc"
+		trigger = {
+			OR = {
+				not = {
+					country_exists = c:UFC
+				}
+				c:UFC = {
+					is_during_bankruptcy = yes
+				}
+			}
+		}
+		immediate = {
 			c:UFC = {
-				is_during_bankruptcy = yes
+				every_owned_building = {
+					change_building_level = -100
+				}
 			}
 		}
 	}
@@ -171,8 +219,8 @@
 	}
 
 
-	on_ending = {
-	}
+	# on_ending = {
+	# }
 
 	tooltip = {
 
@@ -197,4 +245,6 @@
 	on_ended = {
 		set_situation_end_flag_effect = { situation = rise_of_the_ufc }
 	}
+
+
 }

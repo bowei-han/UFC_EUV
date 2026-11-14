@@ -16,7 +16,6 @@
 	increase_per_level_cost = 0.5
 
 	country_potential = {
-		#has_or_had_tag = UFC
 		modifier:allows_ufc_federation_buildings = yes
 	}
 
@@ -26,7 +25,7 @@
 		merchant_power_from_building = 1
 		building_owner_maritime_presence = 0.1
 		merchant_capacity_from_building = 0.33
-		local_production_efficiency = 0.05
+		local_production_efficiency = 0.025
 	}
 	unique_production_methods = {
 		UFC_trade_post_maintenance = {
@@ -35,6 +34,7 @@
 			lumber = 0.1
 			tools = 0.05
 			paper = 0.2
+			masonry = 0.05
 
 			category = building_maintenance
 		}
@@ -81,9 +81,9 @@ UFC_town_hall = {
 
 	pop_type = nobles
 	pop_size_created = 0.05
-	category = trade_category
+	category = government_category
 
-	max_levels = 3
+	max_levels = ufc_UFC_town_hall_max_level
 	employment_size = normal_noble_employment
 
 	rural_settlement = no
@@ -107,12 +107,12 @@ UFC_town_hall = {
 
 	capital_country_modifier = {
 		selling_efficiency = 0.05
-		global_crown_estate_power = 0.15
+		global_crown_estate_power = 0.10
 		monthly_republican_tradition = 0.05
 	}
 	modifier = {
-		gold_to_building_owner = 1
-		sailors_to_building_owner = 0.005
+		gold_to_building_owner = 2
+		sailors_to_building_owner = 0.01
 		merchant_capacity_from_building = 3
 	}
 	remove_if = {

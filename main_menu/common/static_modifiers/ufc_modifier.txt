@@ -132,3 +132,11 @@ ufc_modifier_kindhearted_weaver = {
 	dip = 10
 	character_fertility = -0.95
 }
+
+ufc_modifier_umayyad = {
+	game_data = {
+		category = character
+	}
+	character_life_expectancy = 20
+	character_child_education = 1
+}

@@ -823,3 +823,117 @@ flavor_ufc.1000 = {
 		remove_variable = ufc_no_confidence_motion_flag
 	}
 }
+
+
+#真正的风味事件
+#国际组织法律
+flavor_ufc.101 = {
+	type = country_event
+	title = flavor_ufc.101.title
+	desc = flavor_ufc.101.desc
+	outcome = neutral
+	historical_info = flavor_ufc.101.historical_info
+	fire_only_once = yes
+	dynamic_historical_event = {
+		tag = UFC
+		from = 1337.4.1
+		to = 1444.11.11
+		monthly_chance = 2.5
+	}
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+	trigger = {
+		is_leader_of_international_organization = international_organization:ufc_trade_association
+		any_country = {
+			is_member_of_international_organization = international_organization:ufc_trade_association
+			culture = {
+				has_culture_group = culture_group:iberian_group
+			}
+			religion = {
+				group = religion_group:christian
+			}
+			has_positive_opinion = c:UFC
+		}
+
+	}
+	immediate = {
+		location:malaga = {
+			save_scope_as = target_location
+		}
+	}
+
+	option = {
+		name = flavor_ufc.101.a
+		custom_tooltip = flavor_ufc.101.tt
+
+	}
+}
+
+
+flavor_ufc.102 = {
+	type = country_event
+	title = flavor_ufc.102.title
+	desc = flavor_ufc.102.desc
+	outcome = neutral
+	historical_info = flavor_ufc.102.historical_info
+	fire_only_once = yes
+	dynamic_historical_event = {
+		tag = UFC
+		from = 1337.4.1
+		to = 1444.11.11
+		monthly_chance = 2
+	}
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+	trigger = {
+		is_leader_of_international_organization = international_organization:ufc_trade_association
+	}
+	immediate = {
+		location:palma = {
+			save_scope_as = target_location
+		}
+	}
+
+	option = {
+		name = flavor_ufc.102.a
+		custom_tooltip = flavor_ufc.102.tt
+
+	}
+}
+
+flavor_ufc.103 = {
+	type = country_event
+	title = flavor_ufc.103.title
+	desc = flavor_ufc.103.desc
+	outcome = neutral
+	historical_info = flavor_ufc.103.historical_info
+	fire_only_once = yes
+	dynamic_historical_event = {
+		tag = UFC
+		from = 1337.4.1
+		to = 1444.11.11
+		monthly_chance = 2
+	}
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+	trigger = {
+		is_leader_of_international_organization = international_organization:ufc_trade_association
+	}
+	immediate = {
+		location:malaga = {
+			save_scope_as = target_location
+		}
+	}
+
+	option = {
+		name = flavor_ufc.103.a
+		custom_tooltip = flavor_ufc.103.tt
+
+	}
+}

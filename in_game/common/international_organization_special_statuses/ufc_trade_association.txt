@@ -1,0 +1,87 @@
+ufc_merchant_association_leader = {
+    max_countries = 1
+    priority = 25
+    map_color = define:NMapColors|INTERNATIONAL_ORGANIZATION_LEADER_COLOR
+    can_bestow_trigger = {
+        is_leader_of_international_organization = scope:recipient
+    }
+    auto_bestowal_trigger = {
+        always = yes
+    }
+    auto_rescind_trigger = {
+        NOT = { is_leader_of_international_organization = scope:recipient }
+    }
+    leader = yes
+    #map_color = define:NMapColors|HRE_EMPEROR_COLOR
+    special_status_power = {
+        value = 5
+    }
+}
+
+ufc_gra_payment_payee = {
+    max_countries = 1
+    priority = 10
+
+    modifier = {
+    }
+
+    can_bestow_trigger = {
+        root = c:GRA
+    }
+
+    auto_bestowal_trigger = {
+        always = yes
+    }
+
+    #map_color = define:NMapColors|INTERNATIONAL_ORGANIZATION_LEADER_COLOR
+}
+
+ufc_trade_partners = {
+    priority = 10
+    modifier = { }
+    can_bestow_trigger = {
+        is_member_of_international_organization = scope:recipient
+        NOT = { is_leader_of_international_organization = scope:recipient }
+        OR = {
+            has_reform = government_reform:merchant_republic
+            has_reform = government_reform:compagna_communis
+        }
+    }
+    auto_bestowal_trigger = {
+        always = yes
+    }
+    auto_rescind_trigger = {
+        OR = {
+            NOT = { is_member_of_international_organization = scope:recipient }
+            #has_special_status_in_international_organization = { type = special_status:senior_partner international_organization = scope:recipient }
+        }
+        NOR = {
+            has_reform = government_reform:merchant_republic
+            has_reform = government_reform:compagna_communis
+        }
+    }
+    special_status_power = {
+        value = 2
+    }
+}
+
+ufc_member_states = {
+    priority = 5
+    modifier = { }
+    can_bestow_trigger = {
+        is_member_of_international_organization = scope:recipient
+        NOT = { is_leader_of_international_organization = scope:recipient }
+    }
+    auto_bestowal_trigger = {
+        always = yes
+    }
+    auto_rescind_trigger = {
+        OR = {
+            NOT = { is_member_of_international_organization = scope:recipient }
+            has_special_status_in_international_organization = { type = special_status:ufc_trade_partners international_organization = scope:recipient }
+        }
+    }
+    special_status_power = {
+        value = 1
+    }
+}

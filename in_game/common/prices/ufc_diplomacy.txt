@@ -12,3 +12,8 @@ ufc_reduce_influence_additional_gold = {
 ufc_intervention_in_third_party_war_gold= {
 	scaled_gold = 10
 }
+
+ufc_curtailing_granada_sovereignty_price = {
+	political_influence = 15
+	scaled_gold = 2
+}

@@ -22,8 +22,12 @@
         government_reform_slots = 1
         num_possible_rivals = -10
     }
+
     country_modifier = {
-        selling_efficiency = 0.1
+        potential_trigger = {
+            is_leader_of_international_organization = international_organization:ufc_trade_association
+        }
+        diplomatic_reputation = 2
         improve_relation_impact = 0.25
         scale = {
             min = 0
@@ -35,19 +39,26 @@
         }
     }
     country_modifier = {
-        potential_trigger = {
+        display_trigger = {
             has_variable = ufc_variable_the_legacy_of_fatima_nasrid
+        }
+        potential_trigger = {
+            custom_tooltip = {
+                text = ufc_custom_tooltip_enable_the_legacy_of_fatima_nasrid
+                has_variable = ufc_variable_the_legacy_of_fatima_nasrid
+            }
+
         }
         monthly_republican_tradition = 0.1
     }
-    country_modifier = {
-        potential_trigger = {
-           leader = {
-               has_character_modifier = ufc_modifier_no_more_chasing
-           }
-        }
-        monthly_towards_jurisprudence = societal_value_large_monthly_move
-    }
+    # country_modifier = {
+    #     potential_trigger = {
+    #        leader = {
+    #            has_character_modifier = ufc_modifier_no_more_chasing
+    #        }
+    #     }
+    #     monthly_towards_jurisprudence = societal_value_large_monthly_move
+    # }
     years = 2
 }
 
