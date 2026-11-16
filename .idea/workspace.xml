@@ -4,18 +4,17 @@
     <list default="true" id="7d647ae6-0074-424d-b9c5-b75793d9b87b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/in_game/common/building_types/UFC_buildings.txt" beforeDir="false" afterPath="$PROJECT_DIR$/in_game/common/building_types/UFC_buildings.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/in_game/common/generic_actions/ufc_battle_for_the_strait.txt" beforeDir="false" afterPath="$PROJECT_DIR$/in_game/common/generic_actions/ufc_battle_for_the_strait.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/in_game/common/government_reforms/UFC_government_reforms.txt" beforeDir="false" afterPath="$PROJECT_DIR$/in_game/common/government_reforms/UFC_government_reforms.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/in_game/common/international_organization_special_statuses/ufc_gra_payment_country.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/in_game/common/international_organizations/UFC_trade_association.txt" beforeDir="false" afterPath="$PROJECT_DIR$/in_game/common/international_organizations/UFC_trade_association.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/in_game/common/prices/ufc_diplomacy.txt" beforeDir="false" afterPath="$PROJECT_DIR$/in_game/common/prices/ufc_diplomacy.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/in_game/common/laws/ufc_trade_association_laws.txt" beforeDir="false" afterPath="$PROJECT_DIR$/in_game/common/laws/ufc_trade_association_laws.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/in_game/common/on_action/UFC_oa.txt" beforeDir="false" afterPath="$PROJECT_DIR$/in_game/common/on_action/UFC_oa.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/in_game/common/script_values/ufc_values.txt" beforeDir="false" afterPath="$PROJECT_DIR$/in_game/common/script_values/ufc_values.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/in_game/common/scripted_effects/ufc_effects.txt" beforeDir="false" afterPath="$PROJECT_DIR$/in_game/common/scripted_effects/ufc_effects.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/in_game/common/situations/rise_of_the_ufc.txt" beforeDir="false" afterPath="$PROJECT_DIR$/in_game/common/situations/rise_of_the_ufc.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/in_game/events/DHE/flavor_UFC.txt" beforeDir="false" afterPath="$PROJECT_DIR$/in_game/events/DHE/flavor_UFC.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/in_game/gui/panels/situation/rise_of_the_ufc.gui" beforeDir="false" afterPath="$PROJECT_DIR$/in_game/gui/panels/situation/rise_of_the_ufc.gui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/in_game/events/situations/situation_the_rise_of_ufc.txt" beforeDir="false" afterPath="$PROJECT_DIR$/in_game/events/situations/situation_the_rise_of_ufc.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_menu/common/static_modifiers/ufc_modifier.txt" beforeDir="false" afterPath="$PROJECT_DIR$/main_menu/common/static_modifiers/ufc_modifier.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_menu/localization/simp_chinese/UFC_l_simp_chinese.yml" beforeDir="false" afterPath="$PROJECT_DIR$/main_menu/localization/simp_chinese/UFC_l_simp_chinese.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_menu/setup/1337/UFC_countries.txt" beforeDir="false" afterPath="$PROJECT_DIR$/main_menu/setup/1337/UFC_countries.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +36,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "ParadoxDefinitionFindUsagesOptions.isSearchForTextOccurrences": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
@@ -56,7 +56,7 @@
       <option name="presentableId" value="Default" />
       <updated>1794343051177</updated>
       <workItem from="1794343052501" duration="30680000" />
-      <workItem from="1794598889398" duration="16015000" />
+      <workItem from="1794598889398" duration="55278000" />
     </task>
     <servers />
   </component>

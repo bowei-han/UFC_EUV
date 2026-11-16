@@ -7,20 +7,20 @@
 	max = 1
 }
 
-ufc_UFC_town_hall_max_level = {
+ufc_town_hall_max_level = {
 	add = {
 		desc = "BUILDING_LEVEL_BASE"
 		value = 1
 	}
 	if = {
 		limit = {
-			owner = {
+			c:UFC = {
 				has_variable = UFC_town_hall_extension_level
 			}
 		}
 		add = {
 			desc = "UFC_town_hall_extension_desc"
-			value = owner.var:UFC_town_hall_extension_level
+			value = c:UFC.var:UFC_town_hall_extension_level
 		}
 	}
 }

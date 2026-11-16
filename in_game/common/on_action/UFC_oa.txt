@@ -30,6 +30,12 @@ on_election = {
     }
 }
 
+on_war_declared = {
+    on_actions = {
+        UFC_on_war_declared
+    }
+}
+
 UFC_on_game_start = {
     effect = {
         character:gra_fatima_bint_al_ahmar_nasrid ?= {
@@ -166,6 +172,31 @@ UFC_on_election = {
                     has_variable = ufc_no_confidence_motion_flag
                 }
                 trigger_event_non_silently = flavor_ufc.1000
+            }
+        }
+    }
+}
+
+UFC_on_war_declared = {
+    effect = {
+        if = {
+            limit = {
+                OR = {
+                    AND = {
+                        scope:actor = c:MOR
+                        scope:recipient = c:CAS
+                    }
+                    AND = {
+                        scope:actor = c:CAS
+                        scope:recipient = c:MOR
+                    }
+                }
+                situation:battle_for_the_strait = {
+                    situation_is_active = yes
+                }
+            }
+            c:UFC = {
+                trigger_event_non_silently = flavor_ufc.17
             }
         }
     }

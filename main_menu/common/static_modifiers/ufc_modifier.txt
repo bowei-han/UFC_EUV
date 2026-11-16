@@ -140,3 +140,22 @@ ufc_modifier_umayyad = {
 	character_life_expectancy = 20
 	character_child_education = 1
 }
+
+ufc_modifier_gra_food_security = {
+	game_data = {
+		category = country
+		decaying = yes
+	}
+	food_purchase_efficiency = -0.1
+	global_monthly_food_modifier = 0.15
+}
+
+ufc_modifier_black_death_silence = {
+	game_data = {
+		category = country
+		decaying = yes
+	}
+	selling_efficiency = -0.8
+	merchant_maintenance_efficiency = 2
+}
+

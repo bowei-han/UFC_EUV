@@ -163,42 +163,42 @@
 				international_organization:ufc_trade_association.var:ufc_gra_payment_multiplier >= 0.05
 			}
 			random_list = {
-				3 = {
+				4 = {
 					c:UFC = {
 						trigger_event_non_silently = ufc_situations.1115
 					}
 				}
-				3 = {
+				4 = {
 					c:UFC = {
 						trigger_event_non_silently = ufc_situations.1120
 					}
 				}
-				3 = {
+				4 = {
 					c:UFC = {
 						trigger_event_non_silently = ufc_situations.1125
 					}
 				}
-				3 = {
+				4 = {
 					c:UFC = {
 						trigger_event_non_silently = ufc_situations.1130
 					}
 				}
-				3 = {
+				4 = {
 					c:UFC = {
 						trigger_event_non_silently = ufc_situations.1135
 					}
 				}
-				3 = {
+				4 = {
 					c:UFC = {
 						trigger_event_non_silently = ufc_situations.1140
 					}
 				}
-				2 = {
+				4 = {
 					c:UFC = {
 						trigger_event_non_silently = ufc_situations.1145
 					}
 				}
-				80 = {
+				72 = {
 
 				}
 			}

@@ -132,6 +132,7 @@
 	}
 
 	laws = {
+
 	}
 
 	can_initiate_policy_votes = {

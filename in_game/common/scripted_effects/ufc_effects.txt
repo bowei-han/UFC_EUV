@@ -16,7 +16,7 @@
 						set_variable = {
 							name = ufc_random_mission_building_trade_post_variable
 							value = {
-								add = total_effective_building_levels:UFC_trade_post
+								add = total_building_levels_including_construction:UFC_trade_post#total_effective_building_levels:UFC_trade_post
 								add = 2
 							}
 						}
@@ -82,7 +82,7 @@
 					}
 				}
 				1 = {
-					#提高稳定
+					#提高共和传统
 					set_variable = {
 						name = rise_of_the_ufc_thirdary_mission_counting
 						value = flag:UFC_SITUATION_MISSION_RANDOM_LEGALITY
@@ -145,7 +145,7 @@ ufc_se_trigger_random_mission = {
 				var:rise_of_the_ufc_thirdary_mission_counting = flag:UFC_SITUATION_MISSION_RANDOM_BUILD_TRADE_PORT
 			}
 			c:UFC = {
-				total_effective_building_levels:UFC_trade_post >= var:ufc_random_mission_building_trade_post_variable
+				total_building_levels_including_construction:UFC_trade_post >= c:UFC.var:ufc_random_mission_building_trade_post_variable
 			}
 		}
 		ufc_se_effect_random_mission = yes
@@ -200,6 +200,24 @@ ufc_se_trigger_random_mission = {
 			c:UFC = {
 				republican_tradition >= var:ufc_random_mission_legality_variable
 			}
+		}
+		ufc_se_effect_random_mission = yes
+	}
+	if = {
+		limit = {
+			situation:rise_of_the_ufc = {
+				var:rise_of_the_ufc_thirdary_mission_counting = flag:UFC_SITUATION_MISSION_RANDOM_DEVELOP_OPINION
+			}
+			international_organization:ufc_trade_association = {
+				any_international_organization_member = {
+					count >= 3
+					has_positive_opinion = c:UFC
+					religion = {
+						group = religion_group:christian
+					}
+				}
+			}
+
 		}
 		ufc_se_effect_random_mission = yes
 	}

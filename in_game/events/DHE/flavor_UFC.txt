@@ -129,7 +129,7 @@ flavor_ufc.3 = { #Consulate of the Sea
 		international_organization:ufc_trade_association = {
 			change_variable = {
 				name = ufc_gra_payment_multiplier
-				add = 0.1
+				add = 0.05
 			}
 		}
 		add_army_tradition = army_tradition_extreme_bonus
@@ -138,6 +138,9 @@ flavor_ufc.3 = { #Consulate of the Sea
 	option = {
 		name = flavor_ufc.3.b
 		custom_tooltip = flavor_ufc.3.b.tt
+		scope:target_character = {
+			move_country = c:CAS
+		}
 	}
 }
 
@@ -293,10 +296,11 @@ flavor_ufc.7 = {
 		}
 		c:GRA = {
 			remove_rival = c:MOR
-			create_alliance = {
-				target = c:MOR
-			}
+			# create_alliance = {
+			# 	target = c:MOR
+			# }
 		}
+		custom_tooltip = flavor_ufc.7.tt
 	}
 }
 
@@ -315,7 +319,10 @@ flavor_ufc.8 = {
 	image = "gfx/interface/illustrations/situation/black_death.dds"
 	trigger = {
 		location:kaffa = {
-			disease_has_stagnated = disease:bubonic_plague
+			disease_presence = {
+				disease = disease:bubonic_plague
+				value >= 0.5
+			}
 		}
 	}
 	immediate = {
@@ -355,7 +362,10 @@ flavor_ufc.9 = {
 	image = "gfx/interface/illustrations/situation/black_death.dds"
 	trigger = {
 		location:genoa = {
-			disease_has_stagnated = disease:bubonic_plague
+			disease_presence = {
+				disease = disease:bubonic_plague
+				value >= 0.5
+			}
 		}
 	}
 	immediate = {
@@ -379,6 +389,10 @@ flavor_ufc.9 = {
 			}
 		}
 		custom_tooltip = flavor_ufc.9.a.tt
+		add_country_modifier = {
+			modifier = ufc_modifier_black_death_silence
+			years = 2
+		}
 	}
 	after = {
 		hidden_effect = {
@@ -400,8 +414,11 @@ flavor_ufc.10 = {
 	image = "gfx/interface/illustrations/situation/black_death.dds"
 
 	immediate = {
-		character:cas_alfonso_xi_burgundy = {
-			save_scope_as = target_character
+		#:cas_alfonso_xi_burgundy
+		c:CAS = {
+			ruler = {
+				save_scope_as = target_character
+			}
 		}
 	}
 	option = {
@@ -494,6 +511,9 @@ flavor_ufc.12 = {
 	immediate = {
 		character:cas_pedro_i_burgundy = {
 			save_scope_as = target_character
+		}
+		c:CAS = {
+			set_new_ruler = character:cas_pedro_i_burgundy
 		}
 	}
 	option = {
@@ -641,6 +661,7 @@ flavor_ufc.15 = {
 	option = {
 		name = flavor_ufc.15.a
 		custom_tooltip = flavor_ufc.15.a.tt
+		remove_country_modifier = ufc_modifier_black_death_silence
 		hidden_effect = {
 			add_country_modifier = {
 				modifier = ufc_modifier_the_aftermath_of_black_death
@@ -676,6 +697,63 @@ flavor_ufc.16 = {
 		name = flavor_ufc.16.a
 		custom_tooltip = flavor_ufc.16.a.tt
 		set_variable = ufc_variable_the_legacy_of_fatima_nasrid
+	}
+}
+
+flavor_ufc.17 = {
+	type = country_event
+	title = flavor_ufc.17.title
+	desc = flavor_ufc.17.desc
+	category = situation_event
+	image = "gfx/interface/illustrations/situation/battle_for_the_strait.dds"
+	immediate = {
+
+	}
+	outcome = neutral
+	option = {
+		name = flavor_ufc.17.a
+		custom_tooltip = flavor_ufc.17.a.tt
+		lift_fog_of_war = c:CAS
+		lift_fog_of_war = c:MOR
+		every_market_in_world = {
+			limit = {
+				location = {
+					or = {
+						area = area:andalusia_area
+						area = area:granada_area
+						area = area:morocco_area
+					}
+				}
+			}
+			add_goods_supply = { goods = goods:wheat amount = market_goods_mild_gain }
+			add_food_percentage = 0.2
+		}
+		add_yearly_gold = 0.1
+		trigger_event_silently = {
+			id = flavor_ufc.18
+			years = 1
+		}
+	}
+}
+
+flavor_ufc.18 = {
+	hidden = yes
+	title = flavor_ufc.17.title
+	trigger = {
+		situation:battle_for_the_strait = {
+			situation_is_active = yes
+		}
+		c:CAS = {
+			is_at_war_with = c:MOR
+		}
+	}
+	immediate = {
+		lift_fog_of_war = c:CAS
+		lift_fog_of_war = c:MOR
+		trigger_event_silently = {
+			id = flavor_ufc.18
+			years = 1
+		}
 	}
 }
 
@@ -937,3 +1015,4 @@ flavor_ufc.103 = {
 
 	}
 }
+

@@ -96,9 +96,9 @@
  hint_rise_of_the_ufc_text:0 "该[situation|e]讲述了联合果品公司的白手起家的故事。作为商会阶段的联合果品公司，我们没有土地和原材料，也没有组织生产的能力。特定的[events|e]和[actions|e]或许能够帮助我们解决白手起家时的各种难题。善加利用我们的外交手段和贸易站，扩张我们的贸易圈并保持良好的外交关系。只要我们能够积累足够的资本，联合果品公司定会找到出路。\n\n并非所有创造奇迹之人，与生俱来即是一个奇迹。"
  ufc_custom_trigger_abudula_ummayad_rules:0 "联合果品商会的统治者是#V 阿卜杜拉·伍麦叶#!"
  flavor_ufc.2.title:0 "白手起家"
- flavor_ufc.2.desc:0 "它生于一枚杜卡特，却又因一枚杜卡特而死。\n\n联合果品商会起源于奈斯尔王室的法蒂玛与商队的长期合作。她漫长的一生中曾三次将自己的子孙送上[GetCountry('GRA').GetName]的王位，期间操办典礼仪仗，多是最为心腹的商队首领们出力。为了满足各个市场里王室、贵族以及市民的需求，来自格拉纳达、非斯、热那亚甚至是塞维利亚的商人团们之间建立了长期的合作关系，由此打下了坚实的信任基础。纵使再征服运动和伊比利亚诸王之间的冲突不断，商会内部总能保持一种微妙的平衡。\n\n这是因为，天下并非国王与埃米尔之天下，而是天下人的天下。\n人们在这里堆金积玉，人们在这里苟且偷生。"
+ flavor_ufc.2.desc:0 "它生于一枚杜卡特，却又因一枚杜卡特而死。\n\n联合果品商会起源于奈斯尔王室的[GetCountry('UFC').GetGovernment.GetRuler.GetName]与商队的长期合作。她漫长的一生中曾三次将自己的子孙送上[GetCountry('GRA').GetName]的王位，期间操办典礼仪仗，多是最为心腹的商队首领们出力。为了满足各个市场里王室、贵族以及市民的需求，来自格拉纳达、非斯、热那亚甚至是塞维利亚的商人团们之间建立了长期的合作关系，由此打下了坚实的信任基础。纵使再征服运动和伊比利亚诸王之间的冲突不断，商会内部总能保持一种微妙的平衡。\n\n这是因为，天下并非国王与埃米尔之天下，而是天下人的天下。\n人们在这里堆金积玉，人们在这里苟且偷生。"
  flavor_ufc.2.a:0 "生命，自会找到出路。"
- flavor_ufc.2.a.tt:0 "拿上属于你的那枚金币，商船就要启航了！\n开启局势：[GetSituationByKey('rise_of_the_ufc').GetNameWithNoTooltip]"
+ flavor_ufc.2.a.tt:0 "拿上属于你的那枚金币，商船就要启航了！\n开启局势:[GetSituationByKey('rise_of_the_ufc').GetNameWithNoTooltip]"
  rise_of_the_ufc_success:0 "它生于一枚杜卡特……"
  rise_of_the_ufc_success_desc:0 "联合果品公司成功在错综复杂的政治博弈中艰难求生，它从一无所有中白手起家。它粉碎了枷锁，战胜了天灾，摆脱了萧条，积累了资本。马拉加的港口上停泊着船队，年轻人在港口做着最后的动员演讲，热那亚水手们的士气高扬。……是时候出发了。"
  rise_of_the_ufc_fail:0 "……却又因一枚杜卡特而死。"
@@ -118,12 +118,16 @@
  UFC_MISSION_TEST_FLAVOR_TT:0 "海运总得有船吧！"
  UFC_SITUATION_MISSION_TRAVELED_SALESMAN:0 "主要事变：旅行商人"
  UFC_SITUATION_MISSION_TRAVELED_SALESMAN_TT:0 "从马拉喀什开始，途经麦加、大不里士、君士坦丁堡、新萨莱、撒马尔罕、德里、北京，最后回到原点，距离最短的线路是哪一条呢？\n这对于一名旅行者而言或许是不值得在意的问题，但如果这位举世无双的旅行者成为了一名旅行商人，这一问题就需要好好思考了——他的商队需要再次踏上他曾经走过的道路，而这条道路上，遍地却是当年不曾见的白骨与尸骸。\n黑死病实际上对于商业的打击远远比传统经济的打击要大得多，人口、货源与市场需求的断绝使整个商业体系长期处于瘫痪状态。伊本·白图泰，一个伟大而又庸俗的人。他能帮助联合果品商会挺过黑死病的威胁，并走出黑死病的余波吗？\n启用黑死病余波机制，它代表了地中海商业体系的崩溃与重建。目前的黑死病余波的系数为#R [GetSituation('rise_of_the_ufc').MakeScope.GetVariable('rise_of_the_ufc_blake_death_influence').GetValue]#!\n\n注意，这一数值将显著削弱我们的商业收入。我们必须尽快改变现状。"
+ UFC_SITUATION_MAJOR_MISSION_BLANK:0 "主要事变：暂无"
+ UFC_SITUATION_MAJOR_MISSION_BLANK_TT:0 "目前暂无主要事变，请专注于扩张与发展吧！\n\n每完成一个主要事变，[ShowBuildingTypeName('UFC_town_hall')]的最大可建造等级都将提升#G 1#!级。"
+
+
 
  flavor_ufc.3.title:0 "被驱逐的信仰志愿者"
- flavor_ufc.3.desc:0 "由于被怀疑刺杀了[GetCountry('GRA').GetName]的前任埃米尔穆罕默德四世，以及优素福一世对摩洛哥马林王朝的示好，近期巴努·阿卜·乌拉家族所领导的信仰志愿者军队遭到了阿尔罕布拉宫的驱逐。这些曾受到格拉纳达雇佣的北非士兵们流落到了马拉加港，不久后就要离开格拉纳达的地界了。\n\n商会的行政专员们讨论认为，这些前信仰志愿者军队对于商会的发展具有战略价值，如果可以收买巴努-阿比-乌拉家族使其为商会效力，将使我们在未来的博弈中多一份筹码。虽然法蒂玛太皇太后无权干涉宝贝孙子的决定，但用一些小小的贿赂让阿尔罕布拉宫对此睁一只眼闭一只眼还是不难做到。"
+ flavor_ufc.3.desc:0 "由于被怀疑刺杀了[GetCountry('GRA').GetName]的前任埃米尔穆罕默德四世，以及优素福一世对摩洛哥马林王朝的示好，近期巴努·阿卜·乌拉家族所领导的信仰志愿者军队遭到了阿尔罕布拉宫的驱逐。这些曾受到格拉纳达雇佣的北非士兵们流落到了马拉加港，不久后就要离开格拉纳达的地界了。\n\n商会的行政专员们讨论认为，这些前信仰志愿者军队对于商会的发展具有战略价值，如果可以收买巴努·阿比·乌拉家族使其为商会效力，将使我们在未来的博弈中多一份筹码。虽然法蒂玛太皇太后无权干涉宝贝孙子的决定，但用一些小小的贿赂让阿尔罕布拉宫对此睁一只眼闭一只眼还是不难做到。"
  flavor_ufc.3.a:0 "就这么办。"
  flavor_ufc.3.b:0 "我们不会为阿尔罕布拉税款再多出一分钱。"
- flavor_ufc.3.hist:0 "1338-1340年间，巴努·阿卜·乌拉家族由于因涉嫌策划刺杀了优素福一世的兄弟而遭到驱逐。以此为契机，马林王朝-格拉纳达的联盟于1340年对卡斯蒂利亚王国宣战。"
+ flavor_ufc.3.hist:0 "1338至1340年间，巴努·阿卜·乌拉家族由于因涉嫌策划刺杀了优素福一世的兄弟而遭到驱逐。以此为契机，马林王朝-格拉纳达的联盟于1340年对卡斯蒂利亚王国宣战。"
  ULLAR:0 "乌拉"
  flavor_ufc.3.a.tt:0 "我们的阿尔罕布拉税款将增加#R 5.00%#!。"
  flavor_ufc.3.b.tt:0 "放弃这一机会。"
@@ -142,6 +146,7 @@
  flavor_ufc.7.title:0 "亦敌亦友"
  flavor_ufc.7.desc:0 "马格里布的穆斯林封建主们之间的关系总是令人摸不着头脑，国家与国家之间的关系仿佛是两个永远也长不大的孩子，它们会因琐碎的小事而大打出手，也会因为共同的敌人而并肩作战，甚至一方家族的内乱都可以掀起漫布整个伊比利亚与北非的滔天巨浪。\n\n格拉纳达的奈斯尔家族与摩洛哥的马林王朝就是这样不清不楚的关系。但至少目前，卡斯蒂利亚的阿方索仍然给足了双方压力，致使这两个政权暂时联合在了一起。但可以预见的是，这种友谊一定不会长远，至少奈斯尔对于直布罗陀有着不容放弃的宣称权。"
  flavor_ufc.7.a:0 "密切关注此事。"
+ flavor_ufc.7.tt:0 "我们可以在[GetSituationByKey('battle_for_the_strait').GetNameWithNoTooltip]局势中做出我们力所能及的干预——只有当局势变得过于紧张时。"
  flavor_ufc.8.title:0 "引狼入室"
  flavor_ufc.8.desc:0 "船长安德里亚·多利亚躲在颠簸在海浪上的商船上颤抖着。或许是因为海浪，或许是因为激动，又或许是……别的什么不可名状的原因……他不停颤抖着。身后是刚刚逃离的卡法城港口，金帐汗国的可汗已经围困城堡数月了。数日前，城中爆发了一轮罕见的瘟疫，这让守城方和攻城方进入了一种恐惧中——高烧、无力和那标志性的黑疮，空气中浸染着一种无力感。卡法市民行走于大街之上，转眼间就会倒地而死；蒙古士兵士气低落，死亡的恐惧笼罩了整个军营。\n\n凭借着贿赂蒙古海军，安德里亚·多利亚船长和他的水手们冲破了黑海上的封锁线，全速朝着家乡热那亚驶去。回想起卡法城中的景象，船长仍有些心有余悸。他颤抖着，在航海日志上写下“那是用黑鼠和跳蚤向邪神献祭。”船长回了回神，他想起不久之前，这句话似乎和一摊神志不清的达契亚奴隶的临终遗言颇为相似……\n\n船长抖擞了一下精神，去招呼水手们了。他坚信，只要能够逃出来，只要能到达热那亚，一切罪恶、痛苦和地狱般的绘景都将成为过往云烟——直到他的水手们开始咳嗽，身上开始长出黑斑。\n\n船员们没有回到热那亚城，船只在西西里的墨西拿港停靠。他们再也回不了家了。"
  flavor_ufc.8.a:0 "是你把瘟疫引到这儿来的？！"
@@ -149,6 +154,8 @@
  flavor_ufc.9.desc:0 "联合果品商会向来与热那亚共和国的关系相当暧昧。为了扩张热那亚商人在西地中海的商业渠道，并抑制威尼斯人在北非的扩张，商会和热那亚的商人和水手们缔结了不少契约与协议，如互设商站、雇佣水手、共享情报等等。\n\n但从这周开始，热那亚水手们似乎都翘班了，平时频繁来往的书信也迟迟没有回复。穆斯林商人们气急败坏地辱骂着言而无信的基督徒，定是可恶的热那亚人撕毁了与商会的契约；但很快，商人们的情报网给他们带来了更坏的消息：热那亚水手们不是不想来，而是不能来了。\n\n地中海沿岸的海浪声格外的响，而盘旋着的海鸟的鸣声则比以往更轻。商会的货物囤积在货船之上，货船静静地飘在马拉加的港口边上。今日的马拉加港格外安静。"
  flavor_ufc.9.a:0 "很快，商人们就不必为此发愁了。"
  flavor_ufc.9.a.tt:0 "#R 一个新生的婴儿，出生就面对了死亡。#!"
+ STATIC_MODIFIER_NAME_ufc_modifier_black_death_silence:0 "黑死病静默"
+ STATIC_MODIFIER_DESC_ufc_modifier_black_death_silence:0 "船只孤零零停泊在马拉加的港口，海水散发出腐臭的腥味。今天也没有任何来自热那亚水手们的消息。"
  flavor_ufc.10.title:0 "直布罗陀战役"
  flavor_ufc.10.desc:0 "与远在东方的金帐可汗围攻卡法城异曲同工，[GetCountry('CAS').GetName]的国王[GetCountry('CAS').GetGovernment.GetRuler.GetName]目前正在直布罗陀城堡前身陷战争泥潭。穆斯林的守军寸步不让，而卡斯蒂利亚的步兵面对着背海的城堡无可奈何。穆斯林信仰志愿者们的援军随时都可能对卡斯蒂利亚军队形成夹击，[GetCountry('CAS').GetGovernment.GetRuler.GetName]必须尽快做出决断了。\n\n[GetCountry('CAS').GetGovernment.GetRuler.GetName]对自己的军事能力颇为自信。他回想起自己登基的那一年，[GetCountry('CAS').GetGovernment.GetRuler.GetName]用残酷的手段处决了所有王位的觊觎者们，包括暗杀他的叔父独眼王胡安。不久之前，他在萨拉多河战役中重创了马林王朝的士兵，使摩洛哥的实力退缩到了直布罗陀海峡的城堡里。[GetCountry('CAS').GetGovernment.GetRuler.GetName]坚信，这次军事行动一定会如往常般顺利。\n\n另一方面，摩洛哥与格拉纳达的信仰志愿者们正在迅速动员军队，增援固守于直布罗陀城堡的守军。队伍懒懒散散地行进着，这些信仰志愿者们大多是拿钱办事的雇佣军，数天之前，瘟疫席卷了伊比利亚和北非，他们的士气也并不高涨。\n\n在这批行军的部队中有个年近半百的中年人，那疲惫的精神与矫健的步伐极不相称。他的母亲在数日前在瘟疫中去世了，他甚至不曾见过母亲最后一面。"
  flavor_ufc.10.hist:0 "格拉纳达的优素福一世的前任穆罕默德四世为了平息国内将领叛乱，并应对来自北方卡斯蒂利亚王国的威胁，曾以直布罗陀附近的诸集镇为代价换取了与摩洛哥马林王朝的结盟。但格拉纳达王国实际上一直没有放弃这些领土的宣称，在相当长的时间内以各种理由请求摩洛哥归还伊比利亚半岛上的土地。他们最后成功了。"
@@ -181,6 +188,13 @@
  flavor_ufc.16.a.tt:0 "联合果品的创建者，法蒂玛太皇太后去世了。她的无私、慈爱与聪慧激励着联合果品的每一代人。\n我们将在主要改革中添加“法蒂玛太皇太后的遗产”，效果为每月共和传统：#G +0.1#!。\n在游戏进行到中期时，所有“遗产”类修正都将被整合为一个新的政府改革中。\n\n另外，“海峡之战”局势中的“遏制格拉纳达主权”行动将解锁！"
  ufc_custom_tooltip_enable_the_legacy_of_fatima_nasrid:0 "我们继承了法蒂玛的遗产。"
 
+
+ flavor_ufc.17.title:0 "海峡之战：一触即发"
+ flavor_ufc.17.desc:0 "最近的商人团们传回了消息，[GetCountry('CAS').GetName]与[GetCountry('MOR').GetName]之间的战争准备正在进行，恐怕不久就会在安达卢西亚的土地上爆发战役。\n\n[GetCountry('UFC').GetName]目前仍然没有能力主动干预战事，但贩卖一些军粮的胆子还是有的，而且很大。"
+ flavor_ufc.17.a:0 "只要不出现压倒性的战争局势，我们都可以接受。"
+ flavor_ufc.17.a.tt:0 "只要双方处于战争中，我们就会获得两方的视野。"
+
+
  STATIC_MODIFIER_NAME_ufc_modifier_strong:0 "身强体壮"
  STATIC_MODIFIER_DESC_ufc_modifier_strong:0 "此人身强体壮，从未被疾病所困扰过——至少小疾小病从未发生。"
 
@@ -203,7 +217,7 @@
  flavor_ufc.103.tt:0 "解锁联合果品商贸圈法律:#W 商贸度量章程#!政策。\n只有当我们掌握了全球贸易的命脉，才可以推进更进一步的度量统一。"
 
  ufc_situations.1000.title:0 "次要事变:百年战争"
- ufc_situations.1000.desc:0 "伊比利亚半岛上从来不缺乏从北方传来的小道消息：英格兰王国与法兰西王国之间的矛盾一触即发。当金雀花王朝贪婪地觊觎着法国王位的同时，卡佩-瓦卢瓦王朝就阿基坦地区和低地地区的主导权更是寸步不让。\n\n近日，弗兰德地区的羊毛贸易燃起了整个炸药桶的第一星火花。英王试图通过对弗兰德公国禁运羊毛和粮食来改变其对法王的效忠，而迫于羊毛需求导致的叛乱，弗兰德伯爵宣布中立。至此，双方剑拔弩张的态势已经让整个西欧地区的各个势力蠢蠢欲动。\n\n根据坊间传言与宫廷消息，卡斯蒂利亚王冠领倾向于支持法兰西势力，而葡萄牙王国则是英王的铁杆盟友，但至少目前看来这场战火尚且烧不到伊比利亚半岛上来。如果联合果品商会希望在这场不可避免的冲突中攫取微薄的利益，我们应该马上做出行动应对这场一本万利的赌局。\n\n若非我们的商船开不到那里，弗兰德斯能被一捆羊毛压倒吗？"
+ ufc_situations.1000.desc:0 "伊比利亚半岛上从来不缺乏从北方传来的小道消息：英格兰王国与法兰西王国之间的矛盾一触即发。当金雀花王朝贪婪地觊觎着法国王位的同时，卡佩-瓦卢瓦王朝就阿基坦地区和低地地区的主导权更是寸步不让。\n\n近日，弗兰德地区的羊毛贸易燃起了整个炸药桶的第一星火花。英王试图通过对弗兰德公国禁运羊毛和粮食来改变其对法王的效忠，而迫于羊毛需求导致的叛乱，弗兰德伯爵宣布中立。至此，双方剑拔弩张的态势已经让整个西欧地区的各个势力蠢蠢欲动。\n\n根据坊间传言与宫廷消息，卡斯蒂利亚王冠领倾向于支持法兰西势力，而葡萄牙王国则是英王的铁杆盟友，但至少目前看来这场战火尚且烧不到伊比利亚半岛上来。如果联合果品商会希望在这场不可避免的冲突中攫取微薄的利益，我们应该马上做出行动应对这场一本万利的赌局。\n\n若非我们的商船开不到那里，弗兰德斯难道还会被一捆羊毛压倒吗？"
  ufc_situations.1000.a:0 "白花花的羊毛说不卖就不卖了，作孽！"
 
  ufc_situations.1005.title:0 "百年战争:法兰西地中海舰队"
@@ -417,6 +431,7 @@
  ufc_situations.1105.desc:0 "优素福一世今日迎来了他的第一个儿子的诞生。愿他健康长寿！\n\n为了庆祝[GetCountry('GRA').GetName]继承人的诞生，阿尔罕布拉宫预期在七天后举行一场盛大的阿其刮仪式，为婴儿进行正式的取名，并施行割礼。孩子被取名为阿布·阿卜杜拉·穆罕默德，如果一切顺利，他将成为[GetCountry('GRA').GetName]的第一顺位继承人。——如果顺利的话。"
  ufc_situations.1105.a:0 "商会将为这次王室典礼提供资金和货源。"
  ufc_situations.1105.a.tt:0 "商人们可以提供王室供给，来换取对商会的掌控权。"
+ ufc_situations.large_descent.tt:0 "我们的阿尔罕布拉税款将降低#G 7.50%#!。"
  ufc_situations.medium_descent.tt:0 "我们的阿尔罕布拉税款将降低#G 5.00%#!。"
  ufc_situations.small_descent.tt:0 "我们的阿尔罕布拉税款将降低#G 2.50%#!。"
  ufc_situations.1105.b:0 "我们不能承受这带来的额外赤字。"
@@ -424,7 +439,10 @@
  ufc_situations.1110.desc:0 "[GetCountry('GRA').GetName]的宫廷货物进口于马拉加，但整个市场的进出口商品长期受到了非斯的摩洛哥商人把控。如果我们能赞助[GetCountry('GRA').GetName]在马拉加投资一个新市场，想必能够更容易掌控本地市场。但需要注意，摩洛哥的商人一定不会为此高兴的。"
  ufc_situations.1110.a:0 "长远来看确实值得这样做。"
  ufc_situations.1110.a.tt:0 "这将松弛埃米尔国对我们的掌控力。这将使联合果品商圈的贸易影响力降低#R 5#!"
+ STATIC_MODIFIER_NAME_ufc_modifier_gra_food_security:0 "注重粮食安全"
+ STATIC_MODIFIER_DESC_ufc_modifier_gra_food_security:0 "[GetCountry('GRA').GetName]如果想不依赖国外的粮食，那么它必须尽快解决自身的粮食自给问题。"
  ufc_situations.1110.b:0 "为什么要做吃力不讨好的事情？"
+ ufc_situations.1110.b.tt:0 "当前版本格拉纳达地区食物供给极其有限，如果设立新市场，请做好相应准备。"
  opinion_ufc_unsatisfied:0 "商会事件产生的不满"
  opinion_ufc_satisfied:0 "商会事件产生的好感"
  ufc_situations.1115.title:0 "松弛枷锁：需求增加" #随机事件，触发概率是每月1%
@@ -448,7 +466,7 @@
  ufc_situations.1135.a:0 "我们可以以此寻求更多自主权。"
  ufc_situations.1135.b:0 "这岂不是一个低买高卖的好机会？"
  ufc_situations.1140.title:0 "松弛枷锁：铸币困境"
- ufc_situations.1140.desc:0 "[GetCountry('GRA').GetName]的[GetCountry('GRA').GetRuler.GetName]最近计划铸造一批新的货币，但最近的贵金属矿藏要么集中在基督徒手里，要么集中在摩洛哥手里。如果商会能够拿到一些便宜的渠道，阿尔罕布拉宫或许可以提供一些好处……"
+ ufc_situations.1140.desc:0 "[GetCountry('GRA').GetName]的[GetCountry('GRA').GetGovernment.GetRuler.GetName]最近计划铸造一批新的货币，但最近的贵金属矿藏要么集中在基督徒手里，要么集中在摩洛哥手里。如果商会能够拿到一些便宜的渠道，阿尔罕布拉宫或许可以提供一些好处……"
  ufc_situations.1140.a:0 "走私贵金属多少有一些风险，但也并非什么大难题。"
  ufc_situations.1140.b:0 "多搞一点！格拉纳达的通货膨胀跟我有什么关系？"
  ufc_situations.1140.c:0 "这会对商会的声誉产生负面影响。"
@@ -464,6 +482,7 @@
  ufc_situations.1155.a:0 "敬法蒂玛太皇太后！"
  ufc_situations.1155.b:0 "敬联合果品商会！"
  ufc_situations.never_pay_for_alhambra.tt:0 "我们不再需要交付阿尔罕布拉税款。虽然一定程度上我们仍然需要仰仗格拉纳达埃米尔国的城市和士兵作为我们发展的基础，但埃米尔国不再对商会享有税务上的特权。"
+ ufc_situations.1155.a.tt:0 "解锁 行政体系 法律中的 集权贸易联邦 政策。"
  centralized_trade_federations:0 "集权贸易联邦"
  centralized_trade_federations_desc:0 "相比于去集中化的贸易体系，集权贸易联邦更注重来自中央的有计划的商业策划。"
  UFC_ALLOW:0 "我们脱离了阿尔罕布拉税款的控制，将权力集中在商业理事会内。"
@@ -1083,7 +1102,7 @@
  UFC_SITUATION_MISSION_RANDOM_BLANK:0 "随机任务：暂无"
  UFC_SITUATION_MISSION_RANDOM_BLANK_TT:0 "当前暂无随机任务，请等待相关事件触发。"
  UFC_SITUATION_MISSION_RANDOM_BUILD_TRADE_PORT:0 "随机任务：建造贸易站"
- UFC_SITUATION_MISSION_RANDOM_BUILD_TRADE_PORT_TT:0 "在境外建造两座满员的[ShowBuildingTypeName('UFC_trade_post')]。"
+ UFC_SITUATION_MISSION_RANDOM_BUILD_TRADE_PORT_TT:0 "在境外建造两座[ShowBuildingTypeName('UFC_trade_post')]。"
  UFC_SITUATION_MISSION_RANDOM_ENLARGE_IO:0 "随机任务：扩大贸易圈"
  UFC_SITUATION_MISSION_RANDOM_ENLARGE_IO_TT:0 "使[GetUniqueInternationalOrganization('ufc_trade_association').GetName]增加成员。"
  ufc_invite_to_ufc_trade_association:0 "邀请加入贸易圈"
@@ -1093,8 +1112,9 @@
  UFC_SITUATION_MISSION_RANDOM_STABILITY:0 "随机任务：稳定商会"
  UFC_SITUATION_MISSION_RANDOM_STABILITY_TT:0 "使稳定度提高到[GetCountry('UFC').MakeScope.GetVariable('ufc_random_mission_stability_variable').GetValue]以上。"
  UFC_SITUATION_MISSION_RANDOM_LEGALITY:0 "随机任务：提升合法性"
- UFC_SITUATION_MISSION_RANDOM_LEGALITY_TT:0 "使共和传统提高到[GetCountry('UFC').MakeScope.GetVariable('ufc_random_mission_egality_variable').GetValue]以上。"
-
+ UFC_SITUATION_MISSION_RANDOM_LEGALITY_TT:0 "使共和传统提高到[GetCountry('UFC').MakeScope.GetVariable('ufc_random_mission_legality_variable').GetValue]以上。"
+ UFC_SITUATION_MISSION_RANDOM_DEVELOP_OPINION:0 "随机任务：增进关系"
+ UFC_SITUATION_MISSION_RANDOM_DEVELOP_OPINION_TT:0 "提升[GetUniqueInternationalOrganization('ufc_trade_association').GetName]内的至少三个基督教国家对我们的好感度，使其为正。"
 
  ufc_random_mission.1.title:0 "随机任务：欣欣向荣"
  ufc_random_mission.1.desc:0 "在[GetCountry('UFC').GetGovernment.GetRuler.GetName]的英明领导下，整个[GetCountry('UFC').GetName]的发展呈现了一片繁荣。我们的共和主义观念得到了加强！"

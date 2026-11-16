@@ -547,27 +547,51 @@ ufc_situations.1110 = {
 		international_organization:ufc_trade_association = {
 			change_variable = {
 				name = ufc_gra_payment_multiplier
-				add = -0.1
+				add = -0.15
 			}
 		}
-		custom_tooltip = ufc_situations.1110.a.tt
-		custom_tooltip = ufc_situations.medium_descent.tt
+		#custom_tooltip = ufc_situations.1110.a.tt
+		custom_tooltip = ufc_situations.large_descent.tt
 		c:MOR = {
 			add_opinion = {
 				modifier = opinion_ufc_unsatisfied
 				target = c:UFC
 			}
 		}
+		c:GRA = {
+			add_gold = {
+				value = c:GRA.monthly_income_trade_and_tax
+				multiply = -6
+			}
+			add_country_modifier = {
+				modifier = ufc_modifier_gra_food_security
+				years = 50
+			}
+		}
+		location:almunecar = {
+			change_max_raw_material_workers = 1
+		}
+		location:pinar = {
+			change_max_raw_material_workers = 1
+		}
+		location:loja = {
+			change_max_raw_material_workers = 1
+		}
+		location:huescar = {
+			change_max_raw_material_workers = 1
+		}
 	}
 
 	option = {
 		name = ufc_situations.1110.b
+		#historical_option = yes
 		c:MOR = {
 			add_opinion = {
 				modifier = opinion_ufc_satisfied
 				target = c:UFC
 			}
 		}
+		custom_tooltip = ufc_situations.1110.b.tt
 	}
 }
 
@@ -851,6 +875,12 @@ ufc_situations.1145 = {
 			value = root.monthly_income_trade_and_tax
 			multiply = -3
 		}
+		c:GRA = {
+			add_gold = {
+				value = root.monthly_income_trade_and_tax
+				multiply = 3
+			}
+		}
 		save_scope_value_as = {
 			name = ufc_var_current_income
 			value = root.monthly_income_trade_and_tax
@@ -891,8 +921,8 @@ ufc_situations.1150 = {
 		# 	multiply = 3
 		# }
 		add_gold = {
-			value = root.monthly_income_trade_and_tax
-			multiply = -3
+			value = scope:ufc_var_current_income
+			multiply = 3
 		}
 		international_organization:ufc_trade_association = {
 			change_variable = {
@@ -908,16 +938,22 @@ ufc_situations.1155 = {
 	type = country_event
 	title = ufc_situations.1155.title
 	desc = ufc_situations.1155.desc
-
+	fire_only_once = yes
 	illustration_tags = {
 		10 = happy
 		10 = exterior
 	}
 
 	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:nobles_estate background = estate_type:burghers_estate }
 		set_variable = rise_of_the_ufc_allow_centralized_trade_federations
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-
+		c:UFC = {
+			set_variable = {
+				name = UFC_town_hall_extension_level
+				value = 1
+			}
+		}
 	}
 	option = {
 		name = ufc_situations.1155.a
@@ -928,6 +964,8 @@ ufc_situations.1155 = {
 			}
 		}
 		custom_tooltip = ufc_situations.never_pay_for_alhambra.tt
+		custom_tooltip = ufc_situations.1155.a.tt
+		custom_tooltip = UFC_town_hall_extension_desc
 	}
 	option = {
 		name = ufc_situations.1155.b
@@ -939,6 +977,19 @@ ufc_situations.1155 = {
 		}
 		custom_tooltip = ufc_situations.never_pay_for_alhambra.tt
 		add_policy = policy:centralized_trade_federations
+		custom_tooltip = UFC_town_hall_extension_desc
+	}
+	after = {
+		situation:rise_of_the_ufc = {
+			set_variable = {
+				name = rise_of_the_ufc_mission_counting
+				value = flag:UFC_SITUATION_MAJOR_MISSION_BLANK
+			}
+			set_variable = {
+				name = rise_of_the_ufc_mission_counting_tooltip
+				value = flag:UFC_SITUATION_MAJOR_MISSION_BLANK_TT
+			}
+		}
 	}
 }
 
@@ -1026,11 +1077,12 @@ ufc_situations.1200 = {
 		tag = UFC
 		from = 1337.6.1
 		to = 1339.9.1
-		monthly_chance = 90
+		monthly_chance = 100
 	}
 	fire_only_once = yes
 	illustration_tags = {
 		10 = exterior
+		10 = happy
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
@@ -1039,6 +1091,16 @@ ufc_situations.1200 = {
 		name = ufc_situations.1200.a
 		custom_tooltip = ufc_situations.1200.a.tt
 		ufc_se_refresh_random_mission = yes
+		situation:rise_of_the_ufc = {
+			set_variable = {
+				name = rise_of_the_ufc_thirdary_mission_counting
+				value = flag:UFC_SITUATION_MISSION_RANDOM_DEVELOP_OPINION
+			}
+			set_variable = {
+				name = rise_of_the_ufc_thirdary_mission_counting_tooltip
+				value = flag:UFC_SITUATION_MISSION_RANDOM_DEVELOP_OPINION_TT
+			}
+		}
 	}
 }
 
@@ -2579,23 +2641,33 @@ ufc_situations.2100 = {
 		}
 		if = {
 			limit = {
-				character:mor_ibn_battuta = {
-					is_alive = no
+				OR = {
+					character:mor_ibn_battuta = {
+						is_alive = no
+					}
+					character:mor_ibn_battuta = {
+						is_artist = yes
+					}
 				}
 			}
-			create_character = {
-				first_name = name_muhammad
-				last_name = ibn_battuta
-				nickname = name_abdullah
-				birth_date = 1304.2.4
-				culture = culture:moroccan
-				religion = religion:sunni
-				estate = estate_type:clergy_estate
-				adm = 89
-				dip = 100
-				mil = 82
-				save_scope_as = target_character
-				save_scope_as = mor_ibn_battuta
+			#kill_character = character:ufc_ibn_battuta
+
+			c:GRA = {
+				create_character = {
+					first_name = name_muhammad
+					last_name = ibn_battuta
+					nickname = name_abdullah
+					birth_date = 1304.2.4
+					birth_location = location:tangier
+					culture = culture:moroccan
+					religion = religion:sunni
+					estate = estate_type:clergy_estate
+					adm = 89
+					dip = 100
+					mil = 82
+					save_scope_as = target_character
+					script = ufc_ibn_battuta
+				}
 			}
 		}
 		situation:rise_of_the_ufc = {
@@ -2606,6 +2678,10 @@ ufc_situations.2100 = {
 			set_variable = {
 				name = rise_of_the_ufc_mission_counting_tooltip
 				value = flag:UFC_SITUATION_MISSION_TRAVELED_SALESMAN_TT
+			}
+			set_variable = {
+				name = rise_of_the_ufc_blake_death_influence
+				value = 0
 			}
 		}
 	}
@@ -2618,8 +2694,10 @@ ufc_situations.2100 = {
 		# 		value = 100
 		# 	}
 		# }
-		character:mor_ibn_battuta = {
-		 	move_country = c:GRA
+		show_as_tooltip = {
+			character:mor_ibn_battuta = {
+				move_country = c:GRA
+			}
 		}
 		c:GRA = {
 			add_country_modifier = {
@@ -2657,7 +2735,7 @@ ufc_situations.2105 = {
 
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:clergy_estate background = estate_type:clergy_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
@@ -2695,14 +2773,14 @@ ufc_situations.2110 = {
 	}
 
 	immediate = {
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
 
 	option = {
 		name = ufc_situations.2110.a
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			add_character_modifier = {
 				modifier = ufc_modifier_no_more_chasing
 			}
@@ -2731,14 +2809,14 @@ ufc_situations.2115 = {
 
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
 
 	option = {
 		name = ufc_situations.2115.a
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			move_country = c:UFC
 		}
 		c:UFC = {
@@ -2747,7 +2825,7 @@ ufc_situations.2115 = {
 	}
 	# option = {
 	# 	name = ufc_situations.2115.b
-	# 	character:mor_ibn_battuta = {
+	# 	character:ufc_ibn_battuta = {
 	# 		move_country = c:MOR
 	# 	}
 	# 	c:UFC = {
@@ -2780,7 +2858,7 @@ ufc_situations.2120 = {
 
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 		ruler = {
@@ -2791,7 +2869,7 @@ ufc_situations.2120 = {
 	option = {
 		name = ufc_situations.2120.a
 		custom_tooltip = ufc_situations.2120.a.tt
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			move_country = c:UFC
 			change_character_estate = estate_type:nobles_estate
 		}
@@ -2823,7 +2901,7 @@ ufc_situations.2125 = {
 
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
@@ -2860,7 +2938,7 @@ ufc_situations.2130 = {
 
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
@@ -2963,7 +3041,7 @@ ufc_situations.2150 = {
 
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 		unlock_law_effect = {
@@ -3005,7 +3083,7 @@ ufc_situations.2155 = {
 
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 		
@@ -3013,7 +3091,7 @@ ufc_situations.2155 = {
 
 	option = {
 		name = ufc_situations.2155.a
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			add_character_modifier = {
 				modifier = ufc_modifier_dept_of_love
 			}
@@ -3050,14 +3128,14 @@ ufc_situations.2160 = {
 		character:gra_fatima_bint_al_ahmar_nasrid = {
 			save_scope_as = target_character_1
 		}
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character_2
 		}
 	}
 
 	option = {
 		name = ufc_situations.2160.a
-		set_new_ruler = character:mor_ibn_battuta
+		set_new_ruler = character:ufc_ibn_battuta
 
 	}
 	after = {
@@ -3084,7 +3162,7 @@ ufc_situations.2165 = {
 
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
@@ -3096,7 +3174,7 @@ ufc_situations.2165 = {
 				add_food_percentage = -0.2
 			}
 		}
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			add_adm = 5
 		}
 	}
@@ -3144,7 +3222,7 @@ ufc_situations.2170 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
@@ -3188,7 +3266,7 @@ ufc_situations.2175 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
@@ -3233,7 +3311,7 @@ ufc_situations.2180 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
@@ -3279,7 +3357,7 @@ ufc_situations.2185 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
@@ -3339,7 +3417,7 @@ ufc_situations.2190 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
@@ -3372,7 +3450,7 @@ ufc_situations.2195 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
@@ -3542,7 +3620,7 @@ ufc_situations.2200 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
@@ -3797,7 +3875,7 @@ ufc_situations.2205 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
@@ -3964,7 +4042,7 @@ ufc_situations.2210 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
@@ -4219,7 +4297,7 @@ ufc_situations.2215 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
@@ -4442,7 +4520,7 @@ ufc_situations.2220 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
@@ -4664,7 +4742,7 @@ ufc_situations.2225 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
@@ -4920,7 +4998,7 @@ ufc_situations.2230 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
@@ -5142,7 +5220,7 @@ ufc_situations.2235 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
@@ -5330,7 +5408,7 @@ ufc_situations.2240 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 	}
@@ -5452,7 +5530,7 @@ ufc_situations.2245 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 		location:rosso = {
@@ -5494,7 +5572,7 @@ ufc_situations.2250 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 		location:niani = {
@@ -5550,7 +5628,7 @@ ufc_situations.2255 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 		location:djenne = {
@@ -5628,7 +5706,7 @@ ufc_situations.2260 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 		location:malaga = {
@@ -5640,7 +5718,7 @@ ufc_situations.2260 = {
 		name = ufc_situations.2260.a
 		custom_tooltip = ufc_situations.2260.a.tt
 		remove_country_modifier = ufc_modifier_slow_expansion
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			remove_character_modifier = ufc_modifier_dept_of_love
 		}
 	}
@@ -5664,7 +5742,7 @@ ufc_situations.2265 = {
 	}
 	immediate = {
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character
 		}
 		location:malaga = {
@@ -5678,7 +5756,7 @@ ufc_situations.2265 = {
 		location:malaga = {
 			create_art = {
 				quality = 95
-				artist = character:mor_ibn_battuta
+				artist = character:ufc_ibn_battuta
 				type = work_of_art_type:novel
 				key = traval_notes_of_ibn_battuta
 			}
@@ -5742,7 +5820,7 @@ ufc_situations.4005 = {
 		character:ufc_ibn_khaldun_script = {
 			save_scope_as = target_character_1
 		}
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character_2
 		}
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
@@ -5778,7 +5856,7 @@ ufc_situations.4010 = {
 		character:ufc_ibn_khaldun_script = {
 			save_scope_as = target_character_1
 		}
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character_2
 		}
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
@@ -6183,7 +6261,7 @@ ufc_situations.4050 = {
 		character:ufc_ibn_khaldun_script = {
 			save_scope_as = target_character_1
 		}
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character_2
 		}
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
@@ -6459,7 +6537,7 @@ ufc_situations.4070 = {
 		character:ufc_ibn_khaldun_script = {
 			save_scope_as = target_character_1
 		}
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character_2
 		}
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
@@ -6496,7 +6574,7 @@ ufc_situations.4075 = {
 		character:ufc_ibn_khaldun_script = {
 			save_scope_as = target_character_1
 		}
-		character:mor_ibn_battuta = {
+		character:ufc_ibn_battuta = {
 			save_scope_as = target_character_2
 		}
 		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }

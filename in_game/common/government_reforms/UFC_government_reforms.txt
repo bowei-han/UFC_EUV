@@ -13,6 +13,7 @@
 
     country_modifier = {
         cannot_be_subjugated = yes
+        cannot_declare_no_cb_wars = yes
         allows_ufc_federation_buildings = yes
         global_burghers_estate_power = -0.5
         merchant_maintenance_efficiency = 0.5

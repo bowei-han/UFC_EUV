@@ -1,0 +1,7 @@
+UFC_trade_post_construction = {
+    lumber = 0.2
+    masonry = 0.3
+    tools = 0.2
+    paper = 0.2
+    category = building_construction
+}
